@@ -1,0 +1,17 @@
+service: aws-api-testing
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+
+plugins:
+  - serverless-offline
+
+functions:
+  hellofn:
+    handler: hello.handler
+    events:
+      - httpApi:
+          path: /hello
+          method: post
